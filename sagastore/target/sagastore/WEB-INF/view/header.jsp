@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,10 +15,45 @@
 					<ul>
 						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">vybhavkadam@live.com</a></li>
 						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+919535576800</li>
-						<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="login">Login</a></li>
+						<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="loginpage">Login</a></li>
 						<li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="register">Register</a></li>
+						
+						<c:choose>
+							<c:when test="${pageContext.request.userPrincipal.name != null}">							
+							
+								<i class="fa fa-user-admin"></i>
+								<li><a>Hello, ${pageContext.request.userPrincipal.name}</a></li>
+								<li><a href="<c:url value="/j_spring_security_logout"/>">
+								<!-- <i class="fa fa-sign-out"></i>SIGN OUT </a></li> -->
+								<li class="grid"><a class="color2" href="<c:url value="/j_spring_security_logout"/>">SIGN OUT</a>
+							</c:when>						
+							<c:otherwise>
+						 </c:otherwise>
+						</c:choose> 
+						
+						
+						
+                                       <c:choose>
+												<c:when test="${pageContext.request.userPrincipal.name != null}">
+													<c:if test="${pageContext.request.userPrincipal.name == 'Admin'}">
+													<li><a href="<c:url value='/categories'/>">Category</a></li>
+														<li><a href="<c:url value="/suppliers"/>">Supplier</a></li>
+														<li><a href="<c:url value="/products"/>">Product</a></li>
+														
+														
+													</c:if>
+															<c:if test="${pageContext.request.userPrincipal.name != 'Admin'}">
+													
+														<li><a class="color2" href="<c:url value="/user/cart"/>">Cart</a></li>
+														
+													
+													</c:if>
+													</c:when>
+											
+													
+											</c:choose>
 					</ul>
-				</div>
+				</div>  
 				<div class="header-grid-right animated wow slideInRight" data-wow-delay=".5s">
 					<ul class="social-icons">
 						<li><a href="www.facebook.com" class="facebook"></a></li>
@@ -43,11 +79,11 @@
 							<span class="icon-bar"></span>
 						</button>
 					</div> 
-					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+					 <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="index" class="act">Home</a></li>	
-							<!-- Mega Menu -->
-							<li class="dropdown">
+							
+							<!-- <li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
 									<div class="row">
@@ -131,6 +167,41 @@
 					</div>
 					</nav>
 				</div>
+				 -->
+				 	
+					
+						
+						
+						
+                                        <c:choose>
+												<c:when test="${pageContext.request.userPrincipal.name != null}">
+													<c:if test="${pageContext.request.userPrincipal.name == 'Admin'}">
+													<li><a href="<c:url value='/categories'/>">Category</a></li>
+														<li><a href="<c:url value="/suppliers"/>">Supplier</a></li>
+														<li><a href="<c:url value="/products"/>">Product</a></li>
+														
+														
+													</c:if>
+															<c:if test="${pageContext.request.userPrincipal.name != 'Admin'}">
+													
+														<li><a class="color2" href="<c:url value="/user/cart"/>">Cart</a></li>
+														
+													
+													</c:if>
+													</c:when>
+											
+													
+											</c:choose>
+					</ul>
+				</div>
+				
+				
+				<!-- <div class="col-sm-8">
+						<div class="login pull-right">
+ -->
+
+						
+				
 				
 					
 				</div>

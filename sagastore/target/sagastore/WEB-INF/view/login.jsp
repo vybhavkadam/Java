@@ -4,6 +4,9 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,19 +63,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<p class="est animated wow zoomIn" data-wow-delay=".5s">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
 				deserunt mollit anim id est laborum.</p>
 			<div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
-				<form>
-					<input type="email" placeholder="Email Address" required=" " >
-					<input type="password" placeholder="Password" required=" " >
-					<div class="forgot">
-						<a href="#">Forgot Password?</a>
-					</div>
+			
+			
+				
+				<form name="login" action="<c:url value='/j_spring_security_check' />" method="post">
+				
+		 	<c:if test="${not empty error}">
+								<div class="error" style="color: #ff0000;">${error}</div>
+							</c:if>
+							
+							<div class="span9 center">
+								<c:if test="${not empty msg}">
+									<div class="msg">${msg} </div>
+								</c:if>
+							</div>
+				
+		
+					<input type="text" id="username" name="username" class="form-control" placeholder="user name"/> 
+					<input type="password" id="password" name="password" class="form-control" placeholder="password"/>
 					<input type="submit" value="Login">
+					<input type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token}" />
 				</form>
 			</div>
 			<h4 class="animated wow slideInUp" data-wow-delay=".5s">For New People</h4>
 			<p class="animated wow slideInUp" data-wow-delay=".5s"><a href="register">Register Here</a> (Or) go back to <a href="index">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
 		</div>
 	</div>
+	
 <!-- //login -->
 <!-- footer -->
 	<%@ include file="footer.jsp" %>
