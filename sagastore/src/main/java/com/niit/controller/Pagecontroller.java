@@ -55,11 +55,23 @@ public class Pagecontroller {
 		System.out.println("inside controller");
 		return "short-codes";
 	}
+	@RequestMapping("/showItem")
+	public String getshowItem()
+	{
+		System.out.println("inside controller");
+		return "showItem";
+	}
 	@RequestMapping("/furniture")
 	public String getfurniturepage()
 	{
 		System.out.println("inside controller");
 		return "furniture";
+	}
+	@RequestMapping("/thankYouPage")
+	public String getthankYouPagepage()
+	{
+		System.out.println("inside controller");
+		return "thankYouPage";
 	}
 	@RequestMapping("/checkout")
 	public String getcheckoutpage()

@@ -1,5 +1,12 @@
-/*package com.niit.controller;
+package com.niit.controller;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import com.niit.DAO.CartDAO;
 import com.niit.DAO.CartItemDAO;
@@ -7,130 +14,164 @@ import com.niit.DAO.ProductDAO;
 import com.niit.DAO.UserDetailsDAO;
 import com.niit.model.Cart;
 import com.niit.model.CartItem;
-
 import com.niit.model.Product;
 import com.niit.model.UserDetails;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
+import java.io.IOException;
 import java.util.List;
-
-
-
- //Only for User Role
- //*This controller is used to handle rest service calls.
- //*All functionality related to user cart is written in this controller.
 
 @Controller
 @RequestMapping("/usercart/cart")
 public class CartManagementController {
 
-    @Autowired
-    private CartDAO cartDao;
+	@Autowired
+	private CartDAO cartDAO;
 
-    @Autowired
-    private CartItemDAO cartItemDao;
+	@Autowired
+	private CartItemDAO cartItemDAO;
 
-    @Autowired
-    private UserDetailsDAO userDetailsDAO;
+	@Autowired
+	private UserDetailsDAO userDetailsDao;
 
-    
-    
-    @Autowired
-    private ProductDAO productDAO;
+	@Autowired
+	private ProductDAO productDAO;
 
-    @RequestMapping("/refreshCart/{cartId}")
-    public @ResponseBody
-    Cart getCartById (@PathVariable(value = "cartId") int cartId) {
-    	
-        return cartDao.getCartById(cartId);
-    }
-    
-    @RequestMapping(value="/refreshCart/{cartId}",method = RequestMethod.GET)
-    public @ResponseBody
-    Cart getCartById(@PathVariable(value = "cartId") int cartId) {
-    	System.out.println("Inside refresh cart ");
-    	
-    	Cart cart = cartDao.getCartById(cartId);
-        return cart;
-    }
-    
-    //addItem method is used to add a item in user cart.
-     
+	
+	 @RequestMapping(value="/refreshCart/{cartId}") 
+	 String getCartById(@PathVariable(value = "cartId") int cartId) {
+		 	return "redirect:/user/cart/" + cartId;
+	 }
+	 
 
-    @RequestMapping(value = "/addItem/{id}", method = RequestMethod.PUT)
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void addItem (@PathVariable(value ="id") String id ) {
-    	//@AuthenticationPrincipal User activeUser
-    	
-    	User activeUser = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	
-    	UserDetails userDetails = userDetailsDAO.getUserByUsername(activeUser.getUsername());
-        Cart cart = userDetails.getCart();
-        
-        
-       
-        Product product = productDAO.get(id);
-        List<CartItem> cartItems = Cart.getCartItems();
+	// addItem method is used to add a item in user cart.
 
-        
-        
-        
-        for (int i=0; i<cartItems.size(); i++) {
-        	System.out.println(i+"i am inside for loop");
-            if(product.getId()==cartItems.get(i).getProduct().getId()){
-            	System.out.println(i+"i am inside if loop");
-                CartItem cartItem = cartItems.get(i);
-                cartItem.setQuantity(cartItem.getQuantity()+1);
-                cartItem.setTotalPrice(product.getPrice()*cartItem.getQuantity());
-                cartItemDao.addCartItem(cartItem);
+	@RequestMapping(value = "/addItem/{id}", method = RequestMethod.GET)
+	public String addItem(@PathVariable(value = "id") String id, Model model) {
 
-                return;
-            }
-        }
+		User activeUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        CartItem cartItem = new CartItem();
-        cartItem.setProduct(product);
-        cartItem.setQuantity(1);
-        cartItem.setTotalPrice(product.getPrice()*cartItem.getQuantity());
-        cartItem.setCart(cart);
-        cartItemDao.addCartItem(cartItem);
-    }
-    
-   //removeItem method is used to remove a item from user cart.
-     
-    @RequestMapping(value = "/removeItem/{id}", method = RequestMethod.PUT)
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void removeItem (@PathVariable(value = "id") String id) {
-        CartItem cartItem = cartItemDao.getCartItemByItemId(id);
-        cartItemDao.removeCartItem(cartItem);
+		UserDetails userDetails = userDetailsDao.getUserByUsername(activeUser.getUsername());
+		Cart cart = userDetails.getCart();
 
-    }
-    
-    //learCartItems method is used to remove all items from user cart.
-     
-    @RequestMapping(value = "/clearCartItems/{cartId}", method = RequestMethod.DELETE)
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void clearCartItems(@PathVariable(value = "cartId") int cartId) {
-        Cart cart = cartDao.getCartById(cartId);
-        cartItemDao.removeAllCartItems(cart);
-    }
-    
-    // ExceptionHandler for client errors.
-     
-    @ExceptionHandler(IllegalArgumentException.class)
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Illegal request, please verify your payload.")
-    public void handleClientErrors (Exception e) {}
-    
-     //ExceptionHandler for server errors.
-     
-    @ExceptionHandler(Exception.class)
-    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Internal Server Error.")
-    public void handleServerErrors (Exception e) {}
-}*/
+		Product product = productDAO.get(id);
+		List<CartItem> cartItems = cart.getCartItems();
+		
+		double grandTotal=0.0;
+		for (int i = 0; i < cartItems.size(); i++) {
+		
+			if (product.getId() == cartItems.get(i).getProduct().getId()) {
+				CartItem cartItem = cartItems.get(i);
+				
+				cartItem.setQuantity(cartItem.getQuantity() + 1);
+				cartItem.setTotalPrice(product.getPrice() * cartItem.getQuantity());
+				cartItemDAO.addCartItem(cartItem);	
+				
+				for (int j = 0; j < cartItems.size(); j++) {
+					grandTotal = grandTotal + cartItem.getTotalPrice();
+				}
+				cart.setGrandTotal(grandTotal);
+				
+				try {
+					cartDAO.validate(cart.getCartId());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+				
+				model.addAttribute("cartId", cart.getCartId());
+				model.addAttribute("successMsg", product.getName() + " added to cart");
+				model.addAttribute("cartList", cartItemDAO.getAllCartItems(cart.getCartId()));
+				return "cart";
+			}
+		}
+
+		CartItem cartItem = new CartItem();
+		cartItem.setProduct(product);
+		cartItem.setQuantity(1);
+		cartItem.setTotalPrice(product.getPrice() * cartItem.getQuantity());
+		cartItem.setCart(cart);
+		cartItemDAO.addCartItem(cartItem);
+		
+		
+		for (int j = 0; j < cartItems.size(); j++) {
+			grandTotal = grandTotal + cartItem.getTotalPrice();
+		}
+		cart.setGrandTotal(grandTotal);
+		cartDAO.update(cart);
+			
+		model.addAttribute("successMsg", product.getName() + " product added to cart");
+		model.addAttribute("cartId", cart.getCartId());
+		model.addAttribute("cartList", cartItemDAO.getAllCartItems(cart.getCartId()));
+		return "cart";
+	}
+
+	/* removeItem method is used to remove a item from user cart. */
+
+	@RequestMapping(value = "/removeItem/{id}/{cartId}", method = RequestMethod.GET)
+	public String removeItem(@PathVariable(value = "id") String id, @PathVariable(value = "cartId") int cartId,
+			Model model) {
+		CartItem cartItem = cartItemDAO.getCartItemByProductId(id, cartId);
+		if (cartItem != null) {
+			cartItemDAO.removeCartItem(cartItem);
+		} else {
+			System.out.println("object is null");
+		}
+		return "redirect:/user/cart/" + cartId;
+	}
+	
+	@RequestMapping(value = "/addQty/{id}/{cartId}", method = RequestMethod.GET)
+	public String addQuantity(@PathVariable(value = "id") String id, @PathVariable(value = "cartId") int cartId,
+			Model model) {
+		CartItem cartItem = cartItemDAO.getCartItemByProductId(id, cartId);
+
+		Product product=productDAO.get(id);
+		cartItem.setQuantity(cartItem.getQuantity() + 1);
+		cartItem.setTotalPrice(cartItem.getQuantity()*product.getPrice());
+		cartItemDAO.addCartItem(cartItem);	
+		return "redirect:/user/cart/" + cartId;
+	}
+
+	@RequestMapping(value = "/reduceQty/{id}/{cartId}", method = RequestMethod.GET)
+	public String reduceQuantity(@PathVariable(value = "id") String id, @PathVariable(value = "cartId") int cartId,
+			Model model) {
+		CartItem cartItem = cartItemDAO.getCartItemByProductId(id, cartId);
+
+		Product product=productDAO.get(id);
+		if(cartItem.getQuantity()>0){
+		cartItem.setQuantity(cartItem.getQuantity() - 1);
+		cartItem.setTotalPrice(cartItem.getQuantity()*product.getPrice());
+		cartItemDAO.addCartItem(cartItem);
+		}
+		return "redirect:/user/cart/" + cartId;
+	}
+	
+	/*@RequestMapping(value = "/update/{cartId}", method = RequestMethod.GET)
+	public String updateCart(@PathVariable(value = "id") String id, @PathVariable(value = "cartId") int cartId,
+			Model model) {
+
+		CartItem cartItem = null;
+		
+		double grandTotal = 0.0;
+		List<CartItem> cartItems=cartItemDAO.getAllCartItems(cartId);
+		for (int j = 0; j < cartItems.size(); j++) {
+			grandTotal += cartItem.getTotalPrice();
+		}
+		Cart cart=cartDAO.getCartById(cartId);
+		cart.setGrandTotal(grandTotal);
+		cartDAO.update(cart);
+		return "redirect:/user/cart/" + cartId;
+	}
+	*/
+
+	/* clearCartItems method is used to remove all items from user cart. */
+
+	@RequestMapping(value = "/clearCartItems/{cartId}", method = RequestMethod.GET)
+	public String clearCartItems(@PathVariable(value = "cartId") int cartId, Model model) {
+		Cart cart = cartDAO.getCartById(cartId);
+		cartItemDAO.removeAllCartItems(cart);
+		return "redirect:/user/cart/" + cartId;
+	}
+
+}

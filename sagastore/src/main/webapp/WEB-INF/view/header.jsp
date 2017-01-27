@@ -114,57 +114,46 @@
 									</div>
 								</ul>
 							</li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Furniture <b class="caret"></b></a>
+							
+				<%-- 	<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+						<ul class="nav navbar-nav">
+							
+
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Laptop <b class="caret"></b></a>
+
 								<ul class="dropdown-menu multi-column columns-3">
 									<div class="row">
 										<div class="col-sm-4">
 											<ul class="multi-column-dropdown">
-												<h6>Home Collection</h6>
-												<li><a href="furniture">Cookware</a></li>
-												<li><a href="furniture">Sofas</a></li>
-												<li><a href="furniture">Dining Tables</a></li>
-												<li><a href="furniture">Shoe Racks</a></li>
-												<li><a href="furniture">Home Decor</a></li>
-											</ul>
+												<c:forEach items="${categoryList}" var="category">
+
+													<li><a href="${category.name}">${category.name}</a>
+														<ul>
+															<c:forEach items="${category.products}" var="product">
+
+																<li><a
+																	href="<c:url value='product/get/${product.id}' />">${product.name}</a></li>
+
+															</c:forEach>
+
+														</ul></li>
+												</c:forEach>
 										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<h6>Office Collection</h6>
-												<li><a href="furniture">Carpets</a></li>
-												<li><a href="furniture">Tables</a></li>
-												<li><a href="furniture">Sofas</a></li>
-												<li><a href="furniture">Shoe Racks</a></li>
-												<li><a href="furniture">Sockets</a></li>
-												<li><a href="furniture">Electrical Machines</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<h6>Decorations</h6>
-												<li><a href="furniture">Toys</a></li>
-												<li><a href="furniture">Wall Clock</a></li>
-												<li><a href="furniture">Lighting</a></li>
-												<li><a href="furniture">Top Brands</a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
 									</div>
 								</ul>
-							</li>
-							<li><a href="short-codes">Short Codes</a></li>
-							
-						</ul>
 					</div>
+					
+							
 					</nav>
 				</div>
-				 
+				  --%>
 				 
 				 	
 					
 						
 						
-						
+						<%-- 
                                         <c:choose>
 												<c:when test="${pageContext.request.userPrincipal.name != null}">
 													<c:if test="${pageContext.request.userPrincipal.name == 'Admin'}">
@@ -185,20 +174,24 @@
 													
 											</c:choose>
 					</ul>
-				</div>
+					
+				</div> --%>
+				
+				
+				
 				
 				
 				<!-- <div class="col-sm-8">
 						<div class="login pull-right">
  -->
- <%-- <div class="homepage owl-carousel">				
+  <%-- <div class="homepage owl-carousel">				
 					
 					<%@include file="/WEB-INF/view/code.jsp" %>
 					
 				</div>
 			</div>
-		</div> --%>
- 
+		</div> 
+  --%>
 
 						
 				

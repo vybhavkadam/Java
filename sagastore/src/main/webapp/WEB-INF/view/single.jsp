@@ -3,6 +3,9 @@
 <html>
 <head>
 <title>Best Store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Single :: w3layouts</title>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -33,409 +36,501 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <!-- //animation-effect -->
 </head>
+<style>
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+html, body{
+    font-size: 100%;
+	background:	#fff;
+	font-family: 'Open Sans', sans-serif;
+}
+p{
+	margin:0;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Lato', sans-serif;
+	margin:0;
+}
+ul,label{
+	margin:0;
+	padding:0;
+}
+body a:hover{
+	text-decoration:none;
+}
+/*-- header --*/
+.header-grid-left ul li a,.new-collections-grid1-image-pos a,.new-collections-grid1 h4 a,.login a,.register-home a,.checkout-right-basket a,.bootstrap-tab-text-grid-right ul li a,.occasion-cart a,input[type="submit"],.mail-grid-right1 ul li a,.categories ul li a,.new-products-grid-right-add-cart p a,.new-products-grid-right h4 a,.products-right-grid1-add-cart p a,.timer-grid-left h3 a,.new-collections-grid1-left p a,.copy-right p a,.footer-grid-sub-grid-right h4 a,input[type="submit"],.footer-grid ul li a{
+	transition:.5s ease-in-out;
+	-webkit-transition:.5s ease-in-out;
+	-moz-transition:.5s ease-in-out;
+	-o-transition:.5s ease-in-out;
+}
+.header-grid{
+	padding:2em 0;
+	border-bottom:1px solid #DEDEDE;
+}
+.logo-nav{
+	padding:2em 0;
+}
+.header-grid-left{
+	float:left;
+}
+.header-grid-left ul li{
+	display:inline-block;
+	font-size:14px;
+	color:#999;
+	margin: 0 1em;
+}
+.header-grid-left ul li i{
+	left:-.5em;
+}
+.header-grid-left ul li a{
+	text-decoration:none;
+	color:#999;
+}
+.header-grid-left ul li a:hover{
+	color:#FFC229;
+}
+.header-grid-right{
+	float:right;
+}
+ul.social-icons li{
+	display:inline-block;
+	margin: 0px 4px;
+}
+ul.social-icons li a.facebook{
+	background: url(../images/img-sp.png) no-repeat -2px -5px;
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+ul.social-icons li a.facebook:hover{
+	background: url(../images/img-sp.png) no-repeat -2px -54px;
+    display: block;
+}
+ul.social-icons li a.twitter{
+	background:url(../images/img-sp.png) no-repeat -49px -13px;
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+ul.social-icons li a.twitter:hover{
+	background:url(..resource/images/img-sp.png) no-repeat -49px -54px;
+    display: block;
+}
+ul.social-icons li a.g{
+	background:url(..resource/images/img-sp.png) no-repeat -94px -12px;
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+ul.social-icons li a.g:hover{
+	background:url(..resource/images/img-sp.png) no-repeat -94px -54px;
+    display: block;
+}
+ul.social-icons li a.instagram{
+	background:url(..resource/images/img-sp.png) no-repeat -139px -12px;
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+ul.social-icons li a.instagram:hover{
+	background:url(../images/img-sp.png) no-repeat -139px -52px;
+    display: block;
+}
+.logo-nav-left{
+	float:left;
+}
+.logo-nav-left h1 a{
+	font-size:1.5em;
+	color:#222;
+	text-decoration:none;
+}
+.logo-nav-left h1 a span{
+	display: block;
+    font-size: .2em;
+    line-height: 0;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    color: #222222;
+    padding-left: .3em;
+}
+.logo-nav-left1 {
+    float: left;
+    margin-left: 2em;
+}
+.logo-nav-left1 ul li a{
+	font-size:.875em;
+    color: #222;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+	font-weight: 600;
+}
+.logo-nav-left1 ul li.active a.act{
+	color:#d8703f !important;
+}
+.multi-column-dropdown li a {
+    color: #999 !important;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: transparent;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border: none;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    color: #d8703f;
+}
+.navbar-default {
+    background: none;
+    border: none;
+}
+.navbar-collapse {
+    padding: 0;
+}
+ul.multi-column-dropdown h6 {
+    font-size: 1.5em;
+    color:#222222;
+    margin: 0 0 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #E4E4E4;
+    text-transform: capitalize;
+}
+.multi-column-dropdown li {
+    list-style-type: none;
+    margin: 7px 0;
+}
+.multi-column-dropdown li a {
+    display: block;
+    clear: both;
+    line-height: 1.428571429;
+    color: #999 !important;
+    white-space: normal;
+	font-weight:500 !important;
+}
+.dropdown-menu.columns-3 {
+    min-width: 700px;
+    padding: 30px 30px;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background: none;
+    border: none;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: transparent;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    background: none;
+	color:#d8703f !important;
+}
+.navbar-nav > li > a {
+    padding: 29px 18px 0;
+}
+.search-box {
+    margin-top: .6em;
+}
+/*start search*/
+.sb-search {
+	position: absolute;
+    right:25%;
+    width: 0%;
+    min-width:50px;
+    margin: 0;
+    height: 50px;
+    float: none;
+    overflow: hidden;
+    -webkit-transition: width 0.3s;
+    -moz-transition: width 0.3s;
+    transition: width 0.3s;
+    -webkit-backface-visibility: hidden;
+    background: none;
+}
+.sb-search-input {
+	position: absolute;
+    top: 0px;
+    left: 0px;
+    border: none;
+    outline: none;
+    background:#F5F5F5;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    z-index: 10;
+    font-size:14px;
+    color: #999;
+    padding-left: 1em;
+    padding-right: 4em;
+}
+.sb-search-input::-webkit-input-placeholder {
+	color:#999;
+}
+.sb-search-input:-moz-placeholder {
+	color: #999;
+}
+.sb-search-input::-moz-placeholder {
+	color: #999;
+}
+.sb-search-input:-ms-input-placeholder {
+	color: #999;
+}
+.sb-icon-search,.sb-search-submit  {
+	width: 50px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    line-height: 85px;
+    text-align: center;
+    cursor: pointer;
+}
+.sb-search-submit {
+	background:#fff url(../images/img-sp.png) no-repeat 7px -91px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* IE 8 */
+    filter: alpha(opacity=0); /* IE 5-7 */
+    color: transparent;
+	border: none;
+	outline: none;
+	z-index: -1;
+	-webkit-appearance: none;
+}
+.sb-icon-search {
+   background:#fff url(../images/img-sp.png) no-repeat 7px -91px;
+	z-index: 90;
+}
+/* Open state */
+.sb-search.sb-search-open,.no-js .sb-search {
+	width:42%;
+}
+.sb-search.sb-search-open .sb-icon-search,.no-js .sb-search .sb-icon-search {
+	background:#fff url(../images/img-sp.png) no-repeat 7px -91px;
+	color: #fff;
+	z-index: 11;
+}
+.sb-search.sb-search-open .sb-search-submit,.no-js .sb-search .sb-search-submit {
+	z-index: 90;
+}
+/*-- search-ends --*/
+.header-right {
+    float: right;
+    margin-top: 5px;
+	width: 14%;
+}
+.box_1 {
+  float: right;
+  margin-top: 5px;
+}
+.box_1 h3 {
+  color:#d8703f;
+  font-size: 1em;
+  margin: 0;
+}
+.total {
+  display: inline-block;
+  vertical-align: middle;
+}
+.box_1 a img {
+  margin: 3px 0 0 0px;
+}
+.box_1 p {
+	margin: 0;
+    color: #999;
+    font-size: 14px;
+}
+a.simpleCart_empty {
+	color:#212121;
+    font-size: 13px;
+    text-decoration: none;
+    text-align: right;
+    display: block;
+}
+/*-- //header --*/
+/*-- banner --*/
+</style>
+
 	
 <body>
 <!-- header -->
 	<%@include file="header.jsp" %>
 <!-- //header -->
 <!-- breadcrumbs -->
+<div class="header-grid">
+	
+					<ul class="social-icons">
+						<li><a href="www.facebook.com" class="facebook"></a></li>
+						<li><a href="www.twitter.com" class="twitter"></a></li>
+						<li><a href="www.google.com" class="g"></a></li>
+						<li><a href="www.instagram.com" class="instagram"></a></li>
+					</ul>
+				</div>
 	<div class="breadcrumbs">
 		<div class="container">
 			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
 				<li><a href="index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
-				<li class="active">Single Page</li>
+				
 			</ol>
 		</div>
 	</div>
+		<div class="header-grid">
+	
+					<ul class="social-icons">
+						<li><a href="www.facebook.com" class="facebook"></a></li>
+						<li><a href="www.twitter.com" class="twitter"></a></li>
+						<li><a href="www.google.com" class="g"></a></li>
+						<li><a href="www.instagram.com" class="instagram"></a></li>
+					</ul>
+				</div>
+				
 <!-- //breadcrumbs -->
 <!-- single -->
-	<div class="single">
-		<div class="container">
-			<div class="col-md-4 products-left">
-				<div class="filter-price animated wow slideInUp" data-wow-delay=".5s">
-					<h3>Filter By Price</h3>
-					<ul class="dropdown-menu1">
-							<li><a href="">								               
-							<div id="slider-range"></div>							
-							<input type="text" id="amount" style="border: 0" />
-							</a></li>	
-					</ul>
-						<script type='text/javascript'>//<![CDATA[ 
-						$(window).load(function(){
-						 $( "#slider-range" ).slider({
-								range: true,
-								min: 0,
-								max: 100000,
-								values: [ 10000, 60000 ],
-								slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-								}
-					 });
-					$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+	
+	<div id="all">
 
-
-						});//]]>
-						</script>
-						<script type="text/javascript" src="js/jquery-ui.min.js"></script>
-					 <!---->
-				</div>
-				<div class="categories animated wow slideInUp" data-wow-delay=".5s">
-					<h3>Categories</h3>
-					<ul class="cate">
-						<li><a href="products">Best Selling</a> <span>(15)</span></li>
-						<li><a href="products">Home Collections</a> <span>(16)</span></li>
-							<ul>
-								<li><a href="products">Cookware</a> <span>(2)</span></li>
-								<li><a href="products">New Arrivals</a> <span>(0)</span></li>
-								<li><a href="products">Home Decore</a> <span>(1)</span></li>
-							</ul>
-						<li><a href="products">Decorations</a> <span>(15)</span></li>
-							<ul>
-								<li><a href="products">Wall Clock</a> <span>(2)</span></li>
-								<li><a href="products">New Arrivals</a> <span>(0)</span></li>
-								<li><a href="products">Lighting</a> <span>(1)</span></li>
-								<li><a href="products">Top Brands</a> <span>(0)</span></li>
-							</ul>
-					</ul>
-				</div>
-				<div class="men-position animated wow slideInUp" data-wow-delay=".5s">
-					<a href="single"><img src="resource/images/29.jpg" alt=" " class="img-responsive" /></a>
-					<div class="men-position-pos">
-						<h4>Summer collection</h4>
-						<h5><span>55%</span> Flat Discount</h5>
+		<div id="heading-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7">
+						 <!-- <h1>My cart</h1>  -->
+					</div>
+					<div class="col-md-5">
+						<ul class="breadcrumb">
+							<li><a class="active" href="<c:url value="#"/>">MY ORDERS</a></li>
+							<li><a href="<c:url value="/usercart/cart/refreshCart/${cartId}"/>"
+											class="btn btn-primary">REFRESH
+										</a><li>
+										<li><a href="<spring:url value="/" />" >CONTINUE SHOPPING</a><li>
+								<li><a href="<spring:url value="/checkout"/>"
+								><span
+								class="glyphicon-shopping-cart glyphicon"></span> CHECK OUT </a><li>
+								 <li><a
+								href="<c:url value='/usercart/cart/clearCartItems/${cartId}'/>"
+								class="btn btn-danger center"><span
+								class="glyphicon glyphicon-remove-sign"></span>CLEAR CART</a><li>
+							 
+						</ul>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-8 single-right">
-				<div class="col-md-5 single-right-left animated wow slideInUp" data-wow-delay=".5s">
-					<div class="flexslider">
-						<ul class="slides">
-							<li data-thumb="resource/images/si.jpg">
-								<div class="thumb-image"> <img src="resource/images/si.jpg" data-imagezoom="true" class="img-responsive"> </div>
-							</li>
-							<li data-thumb="resource/images/si1.jpg">
-								 <div class="thumb-image"> <img src="resource/images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>
-							</li>
-							<li data-thumb="resource/images/si2.jpg">
-							   <div class="thumb-image"> <img src="resource/images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>
-							</li> 
-						</ul>
-					</div>
-					<!-- flixslider -->
-						<script defer src="js/jquery.flexslider.js"></script>
-						<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-						<script>
-						// Can also be used with $(document).ready()
-						$(window).load(function() {
-						  $('.flexslider').flexslider({
-							animation: "slide",
-							controlNav: "thumbnails"
-						  });
-						});
-						</script>
-					<!-- flixslider -->
-				</div>
-				<div class="col-md-7 single-right-left simpleCart_shelfItem animated wow slideInRight" data-wow-delay=".5s">
-					<h3>Men's Solid Casual Shirt</h3>
-					<h4><span class="item_price">$550</span> - $900</h4>
-					<div class="rating1">
-						<span class="starRating">
-							<input id="rating5" type="radio" name="rating" value="5">
-							<label for="rating5">5</label>
-							<input id="rating4" type="radio" name="rating" value="4">
-							<label for="rating4">4</label>
-							<input id="rating3" type="radio" name="rating" value="3" checked>
-							<label for="rating3">3</label>
-							<input id="rating2" type="radio" name="rating" value="2">
-							<label for="rating2">2</label>
-							<input id="rating1" type="radio" name="rating" value="1">
-							<label for="rating1">1</label>
-						</span>
-					</div>
-					<div class="description">
-						<h5><i>Description</i></h5>
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-							eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-					</div>
-					<div class="color-quality">
-						<div class="color-quality-left">
-							<h5>Color : </h5>
-							<ul>
-								<li><a href="#"><span></span>Red</a></li>
-								<li><a href="#" class="brown"><span></span>Yellow</a></li>
-								<li><a href="#" class="purple"><span></span>Purple</a></li>
-								<li><a href="#" class="gray"><span></span>Violet</a></li>
-							</ul>
-						</div>
-						<div class="color-quality-right">
-							<h5>Quality :</h5>
-							<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-								<option value="null">5 Qty</option>
-								<option value="null">6 Qty</option> 
-								<option value="null">7 Qty</option>					
-								<option value="null">10 Qty</option>								
-							</select>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="occasional">
-						<h5>Occasion :</h5>
-						<div class="colr ert">
-							<label class="radio"><input type="radio" name="radio" checked=""><i></i>Casual Wear</label>
-						</div>
-						<div class="colr">
-							<label class="radio"><input type="radio" name="radio"><i></i>Party Wear</label>
-						</div>
-						<div class="colr">
-							<label class="radio"><input type="radio" name="radio"><i></i>Formal Wear</label>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="occasion-cart">
-						<a class="item_add" href="#">add to cart </a>
-					</div>
-					<div class="social">
-						<div class="social-left">
-							<p>Share On :</p>
-						</div>
-						<div class="social-right">
-							<ul class="social-icons">
-								<li><a href="#" class="facebook"></a></li>
-								<li><a href="#" class="twitter"></a></li>
-								<li><a href="#" class="g"></a></li>
-								<li><a href="#" class="instagram"></a></li>
-							</ul>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-				<div class="bootstrap-tab animated wow slideInUp" data-wow-delay=".5s">
-					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-						<ul id="myTab" class="nav nav-tabs" role="tablist">
-							<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Description</a></li>
-							<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Reviews(2)</a></li>
-							<li role="presentation" class="dropdown">
-								<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Information <span class="caret"></span></a>
-								<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-									<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">cleanse</a></li>
-									<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">fanny</a></li>
-								</ul>
-							</li>
-						</ul>
-						<div id="myTabContent" class="tab-content">
-							<div role="tabpanel" class="tab-pane fade in active bootstrap-tab-text" id="home" aria-labelledby="home-tab">
-								<h5>Product Brief Description</h5>
-								<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-									<span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></p>
-							</div>
-							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="profile" aria-labelledby="profile-tab">
-								<div class="bootstrap-tab-text-grids">
-									<div class="bootstrap-tab-text-grid">
-										<div class="bootstrap-tab-text-grid-left">
-											<img src="resource/images/4.png" alt=" " class="img-responsive" />
-										</div>
-										<div class="bootstrap-tab-text-grid-right">
-											<ul>
-												<li><a href="#">Admin</a></li>
-												<li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
-											</ul>
-											<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
-												suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
-												vel eum iure reprehenderit.</p>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<div class="bootstrap-tab-text-grid">
-										<div class="bootstrap-tab-text-grid-left">
-											<img src="resource/images/5.png" alt=" " class="img-responsive" />
-										</div>
-										<div class="bootstrap-tab-text-grid-right">
-											<ul>
-												<li><a href="#">Admin</a></li>
-												<li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
-											</ul>
-											<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
-												suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
-												vel eum iure reprehenderit.</p>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<div class="add-review">
-										<h4>add a review</h4>
-										<form>
-											<input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-											<input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-											<input type="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}" required="">
-											<textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
-											<input type="submit" value="Send" >
-										</form>
-									</div>
-								</div>
-							</div>
-							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="dropdown1" aria-labelledby="dropdown1-tab">
-								<p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
-							</div>
-							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="dropdown2" aria-labelledby="dropdown2-tab">
-								<p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
 		</div>
-	</div>
-<!-- //single -->
-<!-- single-related-products -->
-	<div class="single-related-products">
-		<div class="container">
-			<h3 class="animated wow slideInUp" data-wow-delay=".5s">Related Products</h3>
-			<p class="est animated wow slideInUp" data-wow-delay=".5s">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-				deserunt mollit anim id est laborum.</p>
-			<div class="new-collections-grids">
-				<div class="col-md-3 new-collections-grid">
-					<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".5s">
-						<div class="new-collections-grid1-image">
-							<a href="single" class="product-image"><img src="resource/images/8.jpg" alt=" " class="img-responsive"></a>
-							<div class="new-collections-grid1-image-pos">
-								<a href="single">Quick View</a>
-							</div>
-							<div class="new-collections-grid1-right">
-								<div class="rating">
-									<div class="rating-left">
-										<img src="resource/images/2.png" alt=" " class="img-responsive">
-									</div>
-									<div class="rating-left">
-										<img src="resource/images/2.png" alt=" " class="img-responsive">
-									</div>
-									<div class="rating-left">
-										<img src="resource/images/1.png" alt=" " class="img-responsive">
-									</div>
-									<div class="rating-left">
-										<img src="resource/images/1.png" alt=" " class="img-responsive">
-									</div>
-									<div class="rating-left">
-										<img src="resource/images/1.png" alt=" " class="img-responsive">
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-							</div>
-						</div>
-						<h4><a href="single">Running Shoes</a></h4>
-						<p>Vel illum qui dolorem eum fugiat.</p>
-						<div class="new-collections-grid1-left simpleCart_shelfItem">
-							<p><i>$280</i> <span class="item_price">$150</span><a class="item_add" href="#">add to cart </a></p>
-						</div>
+		<section>
+		
+			<!-- <div class="span9 margin-bottom center">
+				<h3>Items in your cart</h3>
+			</div> -->
+
+
+			<div class="span9 margin-left10">
+				<div class="container">
+				<div class="row">
+				<c:set var="grandTotal" scope="session" value="${0}" />
+				<h3 align="center" style="color: #79be25;">${successMsg}</h3>
+				<br><br>
+
+				<div class="row margin-left25">
+				<c:if test="${empty cartList}">
+					<h3 align="center" style="color: #ff0000;">Your cart is empty</h3><br><br><br><br><br><br><br><br><br>
+					</c:if>
+					<c:if test="${!empty cartList}">
+						<table class="table table-bordered table-striped fs13">
+							<thead align="center">
+								<tr>
+									<th>Image</th>
+									<th class="width110">Product ID</th>
+									<th>Product Name</th>
+									<th>Unit Price</th>
+									<th>Quantity</th>
+									<th>Price(in Rs.)</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${cartList}" var="cartItem">
+									<tr>
+										<td class="span1"><img
+											src="<c:url value='/resources/img/productImages/${cartItem.product.id}.jpg'/>"
+											alt="image" width="140" height="140" /></td>
+										<td>${cartItem.product.id}</td>
+										<td>${cartItem.product.name}</td>
+										<td>${cartItem.product.price}</td>
+										<td>${cartItem.quantity}  &nbsp;&nbsp;&nbsp;
+										<a
+											href="<c:url value="/usercart/cart/addQty/${cartItem.product.id}/${cartId}"/>"
+											class="btn btn-primary center">+
+										</a>&nbsp;&nbsp;&nbsp;
+										<a
+											href="<c:url value="/usercart/cart/reduceQty/${cartItem.product.id}/${cartId}"/>"
+											class="btn btn-danger btnAction">-
+										</a>
+										</td>
+										<td>${cartItem.totalPrice}</td>
+										<td><a
+											href="<c:url value="/usercart/cart/removeItem/${cartItem.product.id}/${cartId}"/>"
+											class="btn btn-danger btnAction"> <span
+												class="glyphicon glyphicon-remove"></span>remove
+										</a></td>
+										<c:set var="grandTotal"
+											value="${cartItem.totalPrice+grandTotal}" />
+
+									</tr>
+								</c:forEach>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td><td></td>
+									<td>Grand Total(in Rs.)</td>
+									<td><c:out value="${grandTotal}" /></td>
+									<td>
+								</tr>
+							</tbody>
+						</table>
+					</c:if>
+					
+							<br><br>	<%-- <a href="<c:url value="/usercart/cart/update/${cartId}"/>"
+											class="btn btn-danger btnAction">Update
+										</a> --%>
+								<br><br>	<%-- <a href="<c:url value="/usercart/cart/refreshCart/${cartId}"/>"
+											class="btn btn-primary"> Refresh
+										</a> --%> <br><br>
+
+					<div class="row">
+						<div class="span3">
+							<%-- <a href="<spring:url value="/" />" class="btn btn-primary center">Continue
+								Shopping</a> --%>
+						</div><br><br>
+						<div class="span3">
+							<%-- <a href="<spring:url value="/checkout"/>"
+								class="btn btn-success center"><span
+								class="glyphicon-shopping-cart glyphicon"></span> Check out </a> --%>
+						</div><br><br>
+						<div class="span2">
+							<%-- <a
+								href="<c:url value='/usercart/cart/clearCartItems/${cartId}'/>"
+								class="btn btn-danger center"><span
+								class="glyphicon glyphicon-remove-sign"></span>Clear Cart</a> --%>
+						</div><br><br>
 					</div>
 				</div>
-				<div class="col-md-6 new-collections-grid">
-					<div class="new-collections-grid1-sub">
-						<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".6s">
-							<div class="new-collections-grid1-image">
-								<a href="single" class="product-image"><img src="resource/images/6.jpg" alt=" " class="img-responsive"></a>
-								<div class="new-collections-grid1-image-pos">
-									<a href="single">Quick View</a>
-								</div>
-								<div class="new-collections-grid1-right">
-									<div class="rating">
-										<div class="rating-left">
-											<img src="resource/images/2.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="resource/images/2.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="resource/images/2.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="resource/images/2.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="resource/images/2.png" alt=" " class="img-responsive">
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
-							</div>
-							<h4><a href="single">Wall Lamp</a></h4>
-							<p>Vel illum qui dolorem eum fugiat.</p>
-							<div class="new-collections-grid1-left simpleCart_shelfItem">
-								<p><i>$480</i> <span class="item_price">$400</span><a class="item_add" href="#">add to cart </a></p>
-							</div>
-						</div>
-					</div>
-					<div class="new-collections-grid1-sub">
-						<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".7s">
-							<div class="new-collections-grid1-image">
-								<a href="single" class="product-image"><img src="resource/images/9.jpg" alt=" " class="img-responsive"></a>
-								<div class="new-collections-grid1-image-pos">
-									<a href="single">Quick View</a>
-								</div>
-								<div class="new-collections-grid1-right">
-									<div class="rating">
-										<div class="rating-left">
-											<img src="resource/images/2.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="resource/images/1.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="resource/images/1.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="resource/images/1.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="resource/images/1.png" alt=" " class="img-responsive">
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
-							</div>
-							<h4><a href="single">Wall Lamp</a></h4>
-							<p>Vel illum qui dolorem eum fugiat.</p>
-							<div class="new-collections-grid1-left simpleCart_shelfItem">
-								<p><i>$280</i> <span class="item_price">$150</span><a class="item_add" href="#">add to cart </a></p>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="col-md-3 new-collections-grid">
-					<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".8s">
-						<div class="new-collections-grid1-image">
-							<a href="single" class="product-image"><img src="resource/images/11.jpg" alt=" " class="img-responsive"></a>
-							<div class="new-collections-grid1-image-pos">
-								<a href="single">Quick View</a>
-							</div>
-							<div class="new-collections-grid1-right">
-								<div class="rating">
-									<div class="rating-left">
-										<img src="resource/images/2.png" alt=" " class="img-responsive">
-									</div>
-									<div class="rating-left">
-										<img src="resource/images/2.png" alt=" " class="img-responsive">
-									</div>
-									<div class="rating-left">
-										<img src="resource/images/2.png" alt=" " class="img-responsive">
-									</div>
-									<div class="rating-left">
-										<img src="resource/images/2.png" alt=" " class="img-responsive">
-									</div>
-									<div class="rating-left">
-										<img src="resource/images/1.png" alt=" " class="img-responsive">
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-							</div>
-						</div>
-						<h4><a href="single">Stones Bangles</a></h4>
-						<p>Vel illum qui dolorem eum fugiat.</p>
-						<div class="new-collections-grid1-left simpleCart_shelfItem">
-							<p><i>$340</i> <span class="item_price">$257</span><a class="item_add" href="#">add to cart </a></p>
-						</div>
-					</div>
-				</div>
+			</div>
+			</div>
+			</div>
+			<!-- #### JAVASCRIPT FILES ### -->
+			<%@include file="/WEB-INF/view/scriptfiles.jsp"%>
+
+
+
+
+		</section>
+
+
+<div data-role="footer" style="text-align:center;">
+    
 				<div class="clearfix"> </div>
 			</div>
 		</div>

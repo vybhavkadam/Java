@@ -78,101 +78,82 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-					</div> 
-					 <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-						<ul class="nav navbar-nav">
-							<li class="active"><a href="index" class="act">Home</a></li>	
-							
-							<!-- <li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-								<ul class="dropdown-menu multi-column columns-3">
-									<div class="row">
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<h6>Men's Wear</h6>
-												<li><a href="products">Clothing</a></li>
-												<li><a href="products">Wallets</a></li>
-												<li><a href="products">Shoes</a></li>
-												<li><a href="products">Watches</a></li>
-												<li><a href="products">Accessories</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<h6>Women's Wear</h6>
-												<li><a href="products">Clothing</a></li>
-												<li><a href="products">Wallets,Bags</a></li>
-												<li><a href="products">Footwear</a></li>
-												<li><a href="products">Watches</a></li>
-												<li><a href="products">Accessories</a></li>
-												<li><a href="products">Jewellery</a></li>
-												<li><a href="products">Beauty & Grooming</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<h6>Kid's Wear</h6>
-												<li><a href="products">Kids Home Fashion</a></li>
-												<li><a href="products">Boy's Clothing</a></li>
-												<li><a href="products">Girl's Clothing</a></li>
-												<li><a href="products">Shoes</a></li>
-												<li><a href="products">Brand Stores</a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Furniture <b class="caret"></b></a>
-								<ul class="dropdown-menu multi-column columns-3">
-									<div class="row">
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<h6>Home Collection</h6>
-												<li><a href="furniture">Cookware</a></li>
-												<li><a href="furniture">Sofas</a></li>
-												<li><a href="furniture">Dining Tables</a></li>
-												<li><a href="furniture">Shoe Racks</a></li>
-												<li><a href="furniture">Home Decor</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<h6>Office Collection</h6>
-												<li><a href="furniture">Carpets</a></li>
-												<li><a href="furniture">Tables</a></li>
-												<li><a href="furniture">Sofas</a></li>
-												<li><a href="furniture">Shoe Racks</a></li>
-												<li><a href="furniture">Sockets</a></li>
-												<li><a href="furniture">Electrical Machines</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<h6>Decorations</h6>
-												<li><a href="furniture">Toys</a></li>
-												<li><a href="furniture">Wall Clock</a></li>
-												<li><a href="furniture">Lighting</a></li>
-												<li><a href="furniture">Top Brands</a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</ul>
-							</li>
-							<li><a href="short-codes">Short Codes</a></li>
-							
-						</ul>
 					</div>
+					
+
+					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="index" class="act">Home</a></li>
+
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Products <b class="caret"></b></a>
+
+								<ul class="dropdown-menu multi-column columns-3">
+									<div class="row">
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<c:forEach items="${categoryList}" var="category">
+
+													<li><a href="${category.name}">${category.name}</a>
+														<ul>
+															<c:forEach items="${category.products}" var="product">
+
+																<li><a
+																	href="<c:url value='product/get/${product.id}' />">${product.name}</a></li>
+
+															</c:forEach>
+
+														</ul></li>
+												</c:forEach>
+										</div>
+									</div>
+								</ul>
+					</div>
+					
+					<div class="clearfix"></div>
+									</div>
+								</ul>
+							</li>
+							
+					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+						<ul class="nav navbar-nav">
+							
+
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Laptop <b class="caret"></b></a>
+
+								<ul class="dropdown-menu multi-column columns-3">
+									<div class="row">
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<c:forEach items="${categoryList}" var="category">
+
+													<li><a href="${category.name}">${category.name}</a>
+														<ul>
+															<c:forEach items="${category.products}" var="product">
+
+																<li><a
+																	href="<c:url value='product/get/${product.id}' />">${product.name}</a></li>
+
+															</c:forEach>
+
+														</ul></li>
+												</c:forEach>
+										</div>
+									</div>
+								</ul>
+					</div>
+					
+							
 					</nav>
 				</div>
-				 -->
+				 
+				 
 				 	
 					
 						
 						
-						
+						<%-- 
                                         <c:choose>
 												<c:when test="${pageContext.request.userPrincipal.name != null}">
 													<c:if test="${pageContext.request.userPrincipal.name == 'Admin'}">
@@ -184,7 +165,7 @@
 													</c:if>
 															<c:if test="${pageContext.request.userPrincipal.name != 'Admin'}">
 													
-														<li><a class="color2" href="<c:url value="/user/cart"/>">Cart</a></li>
+													
 														
 													
 													</c:if>
@@ -193,12 +174,24 @@
 													
 											</c:choose>
 					</ul>
-				</div>
+					
+				</div> --%>
+				
+				
+				
 				
 				
 				<!-- <div class="col-sm-8">
 						<div class="login pull-right">
  -->
+  <%-- <div class="homepage owl-carousel">				
+					
+					<%@include file="/WEB-INF/view/code.jsp" %>
+					
+				</div>
+			</div>
+		</div> 
+  --%>
 
 						
 				

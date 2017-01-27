@@ -1,6 +1,7 @@
 F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\controller\CategoryController.java
 F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\DAOImpl\CartDaoImpl.java
 F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\controller\ProductController.java
+F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\controller\CartManagementController.java
 F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\DAOImpl\UserDetailsDAOImpl.java
 F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\controller\UserRegistrationController.java
 F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\DAOImpl\CategoryDaoImpl.java
@@ -16,6 +17,7 @@ F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\model\S
 F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\DAO\CartDAO.java
 F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\model\Product.java
 F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\model\Cart.java
+F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\controller\UserCartController.java
 F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\controller\SupplierController.java
 F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\DAOImpl\SupplierDaoImpl.java
 F:\New folder\eclipse\Example\ecommerce\sagastore\src\main\java\com\niit\model\Category.java

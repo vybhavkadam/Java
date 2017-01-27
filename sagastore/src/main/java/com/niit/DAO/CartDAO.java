@@ -1,16 +1,20 @@
-/*package com.niit.DAO;
+package com.niit.DAO;
+
+
+
+import java.io.IOException;
+import java.util.List;
 
 import com.niit.model.Cart;
 
-import java.io.IOException;
+
 
 
 public interface CartDAO {
 
     Cart getCartById (int cartId);
-
-    Cart validate(int cartId) throws IOException;
-
-    void update(Cart cart);
+    
+   Cart validate(int cartId) throws IOException;  
+    
+    public void update(Cart cart);
 }
-*/

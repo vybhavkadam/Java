@@ -144,7 +144,7 @@ public class ProductController {
 		model.addAttribute("Supplier", new Supplier());
 		model.addAttribute("supplierList", this.supplierDAO.list());
 		model.addAttribute("categoryList", this.categoryDAO.list());
-		model.addAttribute("product", this.productDAO.get(id));
+		model.addAttribute("product", this.productDAO.get(id)); 
 		model.addAttribute("productList", this.productDAO.list());
 		return "products";
 	}
@@ -162,8 +162,8 @@ public class ProductController {
 		model.addAttribute("productList", this.productDAO.list());
 		//return "/iindex";
 			return "redirect:/";
-	}
-	*/
+	}*/
+	
 	
 	
 	@RequestMapping("product/get/{id}")
@@ -175,7 +175,7 @@ public class ProductController {
 		 redirectAttributes.addFlashAttribute("selectedProduct", this.productDAO.get(id));
 		model.addAttribute("selectedProduct", this.productDAO.get(id));
 		 model.addAttribute("categoryList", this.categoryDAO.list());
-		 return "products";
+		 return "productInfo1";
 	}
 	
 }

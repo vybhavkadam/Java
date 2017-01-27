@@ -48,7 +48,7 @@ public class CategoryController {
 		String newID=Util.removeComma(category.getId());
 		category.setId(newID);
 		categoryDAO.saveOrUpdate(category);
-		return "redirect:/category";
+		return "redirect:/categories";
 	}
 
 	@RequestMapping("/category/remove/{id}")

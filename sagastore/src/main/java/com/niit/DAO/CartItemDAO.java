@@ -1,7 +1,12 @@
-/*package com.niit.DAO;
+package com.niit.DAO;
+
+import java.util.List;
 
 import com.niit.model.Cart;
 import com.niit.model.CartItem;
+
+
+
 
 
 public interface CartItemDAO {
@@ -12,7 +17,8 @@ public interface CartItemDAO {
 
     void removeAllCartItems(Cart cart);
 
-    CartItem getCartItemByItemId (String id);
+    CartItem getCartItemByProductId (String id,int cartId);
+    
+   List<CartItem> getAllCartItems(int cartId);
 
 }
-*/

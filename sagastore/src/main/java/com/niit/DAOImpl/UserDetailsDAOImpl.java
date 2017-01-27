@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 
 import com.niit.DAO.UserDetailsDAO;
+import com.niit.model.Cart;
 import com.niit.model.User;
 import com.niit.model.UserDetails;
 import com.niit.model.UserRole;
@@ -51,12 +52,12 @@ public class UserDetailsDAOImpl implements UserDetailsDAO{
         session.save(newUser);
         session.saveOrUpdate(newUserRole);
         session.saveOrUpdate(userDetails);
-       /* Cart newCart = new Cart();
-        newCart.setUsersDetail(usersDetail);
-        usersDetail.setCart(newCart);
-        session.saveOrUpdate(usersDetail);
+       Cart newCart = new Cart();
+        newCart.setUsersDetail(userDetails);
+        userDetails.setCart(newCart);
+        session.saveOrUpdate(userDetails);
         session.saveOrUpdate(newCart);
-       */
+       
         session.flush();
     }
 

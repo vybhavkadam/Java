@@ -4,11 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+
 @Entity
 public class UserDetails {
 	@Id
@@ -61,6 +64,10 @@ public class UserDetails {
     private String password;
 
     private boolean enabled;
+    @OneToOne
+	@JoinColumn(name = "cartId")
+	
+	private Cart cart;
 
  
     public String getUserEmail() {
@@ -111,6 +118,14 @@ public class UserDetails {
   	public void setUserId(int userId) {
   		this.userId = userId;
   	}
+  	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
   
 }
 	

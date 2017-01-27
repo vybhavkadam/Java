@@ -1,4 +1,4 @@
-package com.niit.model;
+ package com.niit.model;
 
 
 

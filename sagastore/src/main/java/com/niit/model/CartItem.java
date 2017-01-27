@@ -1,11 +1,6 @@
-/*package com.niit.model;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.niit.model.Product;
+package com.niit.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
-
 
 @Entity
 public class CartItem{
@@ -15,7 +10,7 @@ public class CartItem{
 
     @ManyToOne
     @JoinColumn(name = "cartId")
-    @JsonIgnore
+   
     private Cart cart;
 
     @ManyToOne
@@ -64,6 +59,4 @@ public class CartItem{
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
-    
 }
-*/
